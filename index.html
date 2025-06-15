@@ -156,3 +156,18 @@
   </footer>
 </body>
 </html>
+/* ===== Ajuste de la barra en pantallas ≤ 600 px ===== */
+@media (max-width:600px){
+  .main-nav{
+    position:static;          /* deja de estar flotando encima */
+    flex-wrap:wrap;           /* permite saltar de línea */
+    gap:.5rem;
+    justify-content:center;   /* centrado más limpio */
+    padding:   .75rem 1rem;   /* algo de fondo si quieres */
+    background:rgba(0,0,0,.6);/* opcional: banda semitransparente */
+  }
+  .main-nav a{
+    font-size:.9rem;          /* textos algo más pequeños */
+    white-space:nowrap;       /* evita saltos dentro de cada palabra */
+  }
+}
