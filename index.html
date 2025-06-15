@@ -6,57 +6,36 @@
   <title>La Academia de Pablo – Refuerzo Online Personalizado</title>
 
   <style>
-    /* ───────────────────  VARIABLES Y RESETEO  ─────────────────── */
+    /* ─────────── VARIABLES Y RESETEO ─────────── */
     :root{
-      --primary:#1e88e5; --secondary:#f9b233; --accent:#e53935;
-      --dark:#222;       --light:#f7f9fc;    --max-width:1200px;
-      --radius:.5rem;    --gap:1.5rem;
+      --primary:#1e88e5;--secondary:#f9b233;--accent:#e53935;
+      --dark:#222;--light:#f7f9fc;--max-width:1200px;--radius:.5rem;--gap:1.5rem;
     }
     *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif;}
     body{background:var(--light);color:var(--dark);line-height:1.6;}
+    a{text-decoration:none;color:inherit;}
 
-    a{color:inherit;text-decoration:none;}
-
-    /* ───────────────────  BOTÓN HAMBURGUESA  ─────────────────── */
+    /* ─────────── BOTÓN HAMBURGUESA ─────────── */
     #toggle{
-      display:none;                 /* visible solo en mobile */
-      position:absolute;top:1rem;left:1rem;z-index:11;
-      font-size:2rem;line-height:1;color:#fff;
-      background:none;border:none;cursor:pointer;
+      display:none;position:absolute;top:1rem;left:1rem;z-index:11;
+      font-size:2rem;line-height:1;color:#fff;background:none;border:none;cursor:pointer;
     }
 
-    /* ───────────────────  NAVEGACIÓN  ─────────────────── */
-    .main-nav{
-      position:absolute;top:1rem;right:1.5rem;z-index:10;
-      display:flex;gap:1rem;
-    }
-    .main-nav a{
-      color:#fff;padding:.25rem .5rem;border-radius:var(--radius);
-      transition:background .2s;
-    }
+    /* ─────────── NAVEGACIÓN ─────────── */
+    .main-nav{position:absolute;top:1rem;right:1.5rem;z-index:10;display:flex;gap:1rem;}
+    .main-nav a{color:#fff;padding:.25rem .5rem;border-radius:var(--radius);transition:background .2s;}
     .main-nav a:hover{background:rgba(255,255,255,.2);}
 
-    /* ───────────────────  HERO  ─────────────────── */
-    header#hero{
-      position:relative;min-height:70vh;
-      background:url('IMG/hero-header.jpg') center/cover no-repeat;
-    }
-    header#hero .overlay{
-      position:absolute;inset:0;background:rgba(0,0,0,.4);
-      display:flex;flex-direction:column;align-items:center;justify-content:center;
-      text-align:center;padding:2rem;
-    }
-    header#hero h1{
-      color:#fff;font-size:clamp(2rem,5vw,3.5rem);margin-bottom:.5rem;
-      text-shadow:0 2px 4px rgba(0,0,0,.6);
-    }
+    /* ─────────── HERO ─────────── */
+    header#hero{position:relative;min-height:70vh;background:url('IMG/hero-header.jpg') center/cover no-repeat;}
+    header#hero .overlay{position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;flex-direction:column;
+      align-items:center;justify-content:center;text-align:center;padding:2rem;}
+    header#hero h1{color:#fff;font-size:clamp(2rem,5vw,3.5rem);margin-bottom:.5rem;text-shadow:0 2px 4px rgba(0,0,0,.6);}
     header#hero p{color:#fff;max-width:40ch;margin-bottom:1rem;}
-    header#hero .cta{
-      background:var(--secondary);color:#fff;font-size:1.1rem;
-      padding:.75rem 2rem;border:none;border-radius:var(--radius);cursor:pointer;
-    }
+    header#hero .cta{background:var(--secondary);color:#fff;font-size:1.1rem;padding:.75rem 2rem;
+      border:none;border-radius:var(--radius);cursor:pointer;}
 
-    /* ───────────────────  LAYOUT GENERAL  ─────────────────── */
+    /* ─────────── LAYOUT GENERAL ─────────── */
     main{max-width:var(--max-width);margin:auto;padding:2rem 1rem;}
     section{margin-block:3rem;}
     h2{font-size:2rem;color:var(--primary);margin-bottom:1rem;}
@@ -68,26 +47,19 @@
     .grid-3{display:grid;gap:var(--gap);grid-template-columns:1fr;}
     @media(min-width:768px){.grid-3{grid-template-columns:repeat(3,1fr);} }
 
-    .card{
-      background:#fff;border-radius:var(--radius);overflow:hidden;
-      box-shadow:0 2px 6px rgb(0 0 0 /.1);display:flex;flex-direction:column;
-    }
-    .card img{width:100%;display:block;}
+    .card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 6px rgb(0 0 0 /.1);
+          display:flex;flex-direction:column;height:100%;}
+    .card img{width:100%;height:200px;object-fit:cover;}
     .card-content{flex:1;padding:1rem;display:flex;flex-direction:column;}
     .card-content h3{margin-bottom:.5rem;color:var(--dark);}
     .card-content p{flex:1;margin-bottom:1rem;}
-    .card-content .btn{
-      background:var(--accent);color:#fff;padding:.5rem 1rem;
-      border:none;border-radius:var(--radius);cursor:pointer;
-    }
+    .card-content .btn{background:var(--accent);color:#fff;padding:.5rem 1rem;border:none;
+      border-radius:var(--radius);cursor:pointer;}
 
     .pricing{display:grid;gap:var(--gap);grid-template-columns:1fr;}
     @media(min-width:768px){.pricing{grid-template-columns:repeat(3,1fr);} }
-    .price-card{
-      background:#fff;padding:1.5rem;margin-bottom:var(--gap);
-      border-radius:var(--radius);text-align:center;
-      box-shadow:0 2px 6px rgb(0 0 0 /.1);
-    }
+    .price-card{background:#fff;padding:1.5rem;margin-bottom:var(--gap);
+      border-radius:var(--radius);text-align:center;box-shadow:0 2px 6px rgb(0 0 0 /.1);}
     .price-card h4{margin-bottom:.5rem;color:var(--accent);}
     .price-card span{display:block;font-size:2rem;font-weight:bold;margin:1rem 0;}
 
@@ -98,34 +70,31 @@
 
     form{background:#fff;padding:2rem;border-radius:var(--radius);}
     input,textarea{
-      width:100%;padding:.75rem;font-size:1rem;margin-bottom:1rem;
+      width:100%;padding:.75rem;margin-bottom:1rem;font-size:1rem;
       border:1px solid #ccc;border-radius:var(--radius);
     }
-    button.submit{
-      width:100%;padding:.75rem;font-size:1rem;cursor:pointer;
-      background:var(--primary);color:#fff;border:none;border-radius:var(--radius);
-    }
+    button.submit{width:100%;padding:.75rem;background:var(--primary);color:#fff;
+      border:none;border-radius:var(--radius);font-size:1rem;cursor:pointer;}
 
     footer{background:var(--dark);color:#bbb;text-align:center;padding:2rem 1rem;font-size:.875rem;}
+    .wide{width:100%;max-height:380px;object-fit:cover;border-radius:var(--radius);margin-top:1rem;}
 
-    /* ──────────────  MÓVIL: menú desplegable  ────────────── */
+    /* ─────────── MÓVIL: MENÚ DESPLEGABLE ─────────── */
     @media(max-width:600px){
       #toggle{display:block;}
       .main-nav{
-        display:none;                 /* se mostrará al abrir */
-        position:fixed;top:0;right:0;bottom:0;width:70%;
-        flex-direction:column;gap:1rem;padding:5rem 1rem;
-        background:#fff;overflow-y:auto;
-        box-shadow:-4px 0 10px rgb(0 0 0 /.15);
+        position:fixed;top:0;left:0;bottom:0;width:70%;
+        flex-direction:column;gap:1.2rem;padding:5rem 1.2rem;background:#fff;
+        box-shadow:4px 0 10px rgb(0 0 0 /.15);overflow-y:auto;
+        transform:translateX(-100%);transition:transform .3s ease;
       }
       .main-nav a{color:var(--dark);font-size:1.1rem;}
-      .main-nav.open{display:flex;}   /* clase que se añade con JS */
+      .main-nav.open{transform:translateX(0);}
     }
   </style>
 </head>
 
 <body>
-
   <!-- Botón hamburguesa -->
   <button id="toggle" aria-label="Abrir menú">&#9776;</button>
 
@@ -151,13 +120,12 @@
     </div>
   </header>
 
-  <!-- CONTENIDO PRINCIPAL ================================================= -->
   <main>
     <!-- SOBRE MÍ -->
     <section id="nosotros">
       <h2>¿Quién soy?</h2>
       <p>Soy Pablo, maestro especializado en Educación Primaria con doble mención en Inglés y Educación Física.  
-         Tengo nivel C1 en inglés, más de 12 meses de experiencia internacional en Bélgica y Eslovenia, y más de 5 años dando clases particulares online y presenciales.</p>
+         Tengo nivel C1 en inglés, más de 12 meses de experiencia internacional en Bélgica y Eslovenia, y más de 5 años dando clases particulares online y presenciales en <strong>todas las asignaturas de Educación Primaria</strong>.</p>
       <ul class="check">
         <li>Profesor titulado con doble mención</li>
         <li>C1 en inglés certificado</li>
@@ -181,7 +149,7 @@
     <section id="verano">
       <h2>Clases de Verano</h2>
       <div class="grid-3">
-        <div class="card"><img src="IMG/verano1.jpg" alt="Intensivo Julio-Agosto"><div class="card-content"><h3>Intensivo Julio-Agosto</h3><p>2h semanales de repaso de materias y práctica de inglés.</p><button class="btn" onclick="location.hash='#contacto'">Más info</button></div></div>
+        <div class="card"><img src="IMG/verano1.jpg" alt="Intensivo Julio-Agosto"><div class="card-content"><h3>Intensivo Julio-Agosto</h3><p>2h semanales de repaso y práctica online.</p><button class="btn" onclick="location.hash='#contacto'">Más info</button></div></div>
         <div class="card"><img src="IMG/verano2.jpg" alt="Inglés Conversacional"><div class="card-content"><h3>Inglés Conversacional</h3><p>Sesiones de speaking y listening.</p><button class="btn" onclick="location.hash='#contacto'">Más info</button></div></div>
         <div class="card"><img src="IMG/verano3.jpg" alt="Técnicas de Estudio"><div class="card-content"><h3>Técnicas de Estudio</h3><p>Organiza tu tiempo y mejora tu rendimiento académico.</p><button class="btn" onclick="location.hash='#contacto'">Más info</button></div></div>
       </div>
@@ -200,7 +168,8 @@
     <!-- METODOLOGÍA -->
     <section id="metodologia">
       <h2>La metodología clave</h2>
-      <p>Trabajamos por videollamada (Zoom o Meet) y GoodNotes. Repasamos Lengua, Matemáticas e Inglés con actividades interactivas, seguimiento diario y recursos digitales, tanto en verano como durante el curso.</p>
+      <p>Trabajamos por videollamada (Zoom o Meet) y GoodNotes. Reforzamos <strong>todas las asignaturas de Educación Primaria</strong> con recursos digitales, actividades interactivas y seguimiento diario, tanto en el curso como en verano.</p>
+      <img src="IMG/metodologia.jpg" alt="Metodología interactiva" class="wide">
     </section>
 
     <!-- PRECIOS -->
@@ -226,10 +195,10 @@
     <!-- CONTACTO -->
     <section id="contacto">
       <h2>Contacto</h2>
-      <p>Escríbeme a <strong>pablosantos7703@gmail.com</strong> o llámame al <strong>649 262 156</strong>.</p>
+      <p>Escríbeme a <strong>pablosantos7703@gmail.com</strong> o llámame al <strong>649&nbsp;262&nbsp;156</strong>.</p>
       <form action="mailto:pablosantos7703@gmail.com" method="GET">
         <input type="text"  name="name"  placeholder="Tu nombre*" required>
-        <input type="email" name="email" placeholder="Tu email*"  required>
+        <input type="email" name="email" placeholder="Tu email*" required>
         <button type="submit" class="submit">Ir al correo</button>
       </form>
     </section>
@@ -239,10 +208,14 @@
     © 2025 La Academia de Pablo · pablosantos7703@gmail.com · 649 262 156
   </footer>
 
-  <!-- ──────────────  SCRIPT PARA ABRIR / CERRAR MENÚ  ────────────── -->
+  <!-- SCRIPT: ABRE / CIERRA MENÚ -->
   <script>
-    document.getElementById('toggle').addEventListener('click',()=>{
-      document.querySelector('.main-nav').classList.toggle('open');
+    const nav   = document.querySelector('.main-nav');
+    const toggle= document.getElementById('toggle');
+
+    toggle.addEventListener('click',()=> nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(link=>{
+      link.addEventListener('click',()=> nav.classList.remove('open'));
     });
   </script>
 </body>
